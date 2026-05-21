@@ -1,4 +1,4 @@
-import CreatorOS from './CreatorOS_V3'
+import CreatorOS from './CreatorOS-GPT FINAL 2'
 export default function App() {
   return <CreatorOS />;
 }
