@@ -256,7 +256,7 @@ Build the complete channel strategy.`;
     console.error("JSON parse failed. Raw:", text);
     throw new Error("Claude returned malformed JSON. Try again.");
   }
-
+}
   // ─── USAGE TRACKING ───────────────────────────────────────────────────────────
 
   function getUsage() {
