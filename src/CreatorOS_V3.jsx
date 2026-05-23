@@ -412,10 +412,10 @@ export default function CreatorOS() {
     const obsession = answers.obsession || arch.topics[0];
     setTopic(obsession);
     setPhase("generating");
-    runGeneration(arch, answers, obsession);
+runGeneration(arch, answers, obsession, language);
   };
 
-  const runGeneration = useCallback(async (arch, ans, top) => {
+  const runGeneration = useCallback(async (arch, ans, top, lang) => {
     if (usageCount >= FREE_LIMIT) {
       setShowPaywall(true);
       setPhase("archetype");
@@ -425,14 +425,14 @@ export default function CreatorOS() {
     try {
       incrementUsage();
       setUsageCount(getUsage());
-      const result = await generateWithClaude(arch, ans, top, language);
-      setStrategy(result);
-      setPhase("results");
-    } catch (e) {
-      setError(e.message || "Generation failed. Try again.");
-      setPhase("archetype");
-    }
-  }, [usageCount]);
+      const runGeneration = useCallback(async (arch, ans, top, lang) => {
+        setStrategy(result);
+        setPhase("results");
+      } catch (e) {
+        setError(e.message || "Generation failed. Try again.");
+        setPhase("archetype");
+      }
+    }, [usageCount, language]);
 
   const regenerate = () => {
     if (usageCount >= FREE_LIMIT) { setShowPaywall(true); return; }
