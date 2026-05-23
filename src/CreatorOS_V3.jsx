@@ -586,7 +586,7 @@ Built with CreatorOS — creatoros.io
                 : "text-white/30 hover:text-white/50"
                 }`}
             >
-              ع
+              عربية
             </button>
           </div>
         </div>
