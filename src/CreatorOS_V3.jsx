@@ -184,10 +184,11 @@ const ONBOARDING_QUESTIONS = [
 
 // ─── CLAUDE API ───────────────────────────────────────────────────────────────
 
-async function generateWithClaude(archetype, answers, topic) {
-  const systemPrompt = `You are a senior YouTube channel strategist with deep expertise in viral content psychology, monetization architecture, and creator positioning across all niches including business, AI, personal finance, health & medicine, economics, and education. You build real channel strategies — not generic templates.
-
-You will receive a creator's archetype, goals, and topic. Generate a complete, specific, actionable channel strategy. Every output must be tailored to the exact topic and archetype — no generic filler.
+async function generateWithClaude(archetype, answers, topic, language = "english") {
+  const langInstruction = language === "arabic"
+    ? "You must respond entirely in Modern Standard Arabic (فصحى). Every field in the JSON must be written in Arabic — titles, hooks, positioning, everything. Do not use any English except for the JSON keys themselves.\n\n"
+    : "";
+  const systemPrompt = `${langInstruction}You are a senior YouTube channel strategist with deep expertise in viral content psychology, monetization architecture, and creator positioning across all niches including business, AI, personal finance, health & medicine, economics, and education. You build real channel strategies — not generic templates.
 
 Respond ONLY with valid JSON matching this exact structure:
 {
@@ -386,7 +387,8 @@ export default function CreatorOS() {
   const [usageCount, setUsageCount] = useState(getUsage());
   const [email, setEmail] = useState("");
   const [emailSubmitted, setEmailSubmitted] = useState(false);
-
+  const [language, setLanguage] = useState("english");
+  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-white/50 uppercase tracking-widest mb-10"></div>
   // Progressive reveal on results
   useEffect(() => {
     if (phase !== "results") return;
@@ -423,7 +425,7 @@ export default function CreatorOS() {
     try {
       incrementUsage();
       setUsageCount(getUsage());
-      const result = await generateWithClaude(arch, ans, top);
+      const result = await generateWithClaude(arch, ans, top, language);
       setStrategy(result);
       setPhase("results");
     } catch (e) {
@@ -567,6 +569,26 @@ Built with CreatorOS — creatoros.io
               {FREE_LIMIT - usageCount} free generations remaining
             </div>
           )}
+          <div className="absolute top-6 right-6 flex gap-1">
+            <button
+              onClick={() => setLanguage("english")}
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "english"
+                  ? "bg-white/10 text-white"
+                  : "text-white/30 hover:text-white/50"
+                }`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLanguage("arabic")}
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "arabic"
+                  ? "bg-white/10 text-white"
+                  : "text-white/30 hover:text-white/50"
+                }`}
+            >
+              ع
+            </button>
+          </div>
         </div>
       )}
 
@@ -915,11 +937,10 @@ Built with CreatorOS — creatoros.io
                         }
                         setEmailSubmitted(true);
                       }}
-                        className={`rounded-2xl px-5 py-3 font-semibold text-sm transition ${
-  email.includes("@") 
-    ? "text-black opacity-100 hover:opacity-90" 
-    : "text-black opacity-40 cursor-not-allowed"
-}`}
+                        className={`rounded-2xl px-5 py-3 font-semibold text-sm transition ${email.includes("@")
+                          ? "text-black opacity-100 hover:opacity-90"
+                          : "text-black opacity-40 cursor-not-allowed"
+                          }`}
                         style={{ background: arch.palette.accent }}>
                         Join
                       </button>
