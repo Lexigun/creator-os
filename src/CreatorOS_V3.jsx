@@ -569,12 +569,12 @@ Built with CreatorOS — creatoros.io
               {FREE_LIMIT - usageCount} free generations remaining
             </div>
           )}
-          <div className="absolute top-6 right-6 flex gap-1">
+          <div className="absolute top-6 left-1/2 -translate-x-1/2 flex gap-1 bg-white/5 rounded-full p-1 border border-white/10">
             <button
               onClick={() => setLanguage("english")}
               className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "english"
-                  ? "bg-white/10 text-white"
-                  : "text-white/30 hover:text-white/50"
+                ? "bg-white/10 text-white"
+                : "text-white/30 hover:text-white/50"
                 }`}
             >
               EN
@@ -582,8 +582,8 @@ Built with CreatorOS — creatoros.io
             <button
               onClick={() => setLanguage("arabic")}
               className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "arabic"
-                  ? "bg-white/10 text-white"
-                  : "text-white/30 hover:text-white/50"
+                ? "bg-white/10 text-white"
+                : "text-white/30 hover:text-white/50"
                 }`}
             >
               ع
