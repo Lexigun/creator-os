@@ -425,14 +425,14 @@ runGeneration(arch, answers, obsession, language);
     try {
       incrementUsage();
       setUsageCount(getUsage());
-      const runGeneration = useCallback(async (arch, ans, top, lang) => {
-        setStrategy(result);
-        setPhase("results");
-      } catch (e) {
-        setError(e.message || "Generation failed. Try again.");
-        setPhase("archetype");
-      }
-    }, [usageCount, language]);
+      const result = await generateWithClaude(arch, ans, top, lang);
+      setStrategy(result);
+      setPhase("results");
+    } catch (e) {
+      setError(e.message || "Generation failed. Try again.");
+      setPhase("archetype");
+    }
+  }, [usageCount, language]);
 
   const regenerate = () => {
     if (usageCount >= FREE_LIMIT) { setShowPaywall(true); return; }
