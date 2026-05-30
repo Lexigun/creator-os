@@ -985,10 +985,9 @@ Built with CreatorOS — creatoros.io
                   {Math.max(0, FREE_LIMIT - usageCount)} free generations remaining · CreatorOS
                 </div>
               </div>
-            </div>
-          
-          }}
+            }}
           );
+          }
           // ─── UTILITY COMPONENTS ───────────────────────────────────────────────────────
 
           function Reveal({children, step, threshold}) {
