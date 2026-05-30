@@ -528,15 +528,15 @@ Built with CreatorOS — creatoros.io
           </div>
 
           <div className="relative max-w-3xl mx-auto text-center">
-<div className="flex justify-center gap-1 bg-white/10 rounded-full p-1 border border-white/20 mb-4 w-fit mx-auto">              <button
-                onClick={() => setLanguage("english")}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "english"
-                  ? "bg-white/10 text-white"
-                  : "text-white/60 hover:text-white/80"
-                  }`}
-              >
-                EN
-              </button>
+            <div className="flex justify-center gap-1 bg-white/10 rounded-full p-1 border border-white/20 mb-4 w-fit mx-auto">              <button
+              onClick={() => setLanguage("english")}
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "english"
+                ? "bg-white/10 text-white"
+                : "text-white/60 hover:text-white/80"
+                }`}
+            >
+              EN
+            </button>
               <button
                 onClick={() => setLanguage("arabic")}
                 className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "arabic"
@@ -986,44 +986,44 @@ Built with CreatorOS — creatoros.io
                 </div>
               </div>
             </div>
-          )}
-      );
+          
+          }}
+          );
+          // ─── UTILITY COMPONENTS ───────────────────────────────────────────────────────
 
-      // ─── UTILITY COMPONENTS ───────────────────────────────────────────────────────
-
-      function Reveal({children, step, threshold}) {
+          function Reveal({children, step, threshold}) {
   return (
-      <div className="transition-all duration-500" style={{
-        opacity: step >= threshold ? 1 : 0,
-        transform: step >= threshold ? "translateY(0)" : "translateY(20px)",
-      }}>
-        {children}
-      </div>
-      );
+          <div className="transition-all duration-500" style={{
+            opacity: step >= threshold ? 1 : 0,
+            transform: step >= threshold ? "translateY(0)" : "translateY(20px)",
+          }}>
+            {children}
+          </div>
+          );
 }
 
-      function ResultCard({title, icon, accent, children}) {
+          function ResultCard({title, icon, accent, children}) {
   return (
-      <div className="rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden">
-        <div className="flex items-center gap-2 px-6 py-4 border-b border-white/10">
-          <span style={{ color: accent }}>{icon}</span>
-          <h3 className="font-semibold text-white tracking-tight">{title}</h3>
-        </div>
-        <div className="p-6">{children}</div>
-      </div>
-      );
+          <div className="rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden">
+            <div className="flex items-center gap-2 px-6 py-4 border-b border-white/10">
+              <span style={{ color: accent }}>{icon}</span>
+              <h3 className="font-semibold text-white tracking-tight">{title}</h3>
+            </div>
+            <div className="p-6">{children}</div>
+          </div>
+          );
 }
 
-function NumberedList({items, accent}) {
+          function NumberedList({items, accent}) {
   if (!items?.length) return null;
-  return (
-    <div className="space-y-2">
-      {items.map((item, i) => (
-        <div key={i} className="flex gap-3 rounded-2xl border border-white/[0.06] bg-black/30 px-4 py-3 text-sm text-white/70 transition hover:bg-black/50 hover:text-white/90">
-          <span className="font-mono text-xs mt-0.5 shrink-0" style={{ color: accent }}>{String(i + 1).padStart(2, "0")}</span>
-          <span className="leading-relaxed">{item}</span>
-        </div>
-      ))}
-    </div>
-  );
+          return (
+          <div className="space-y-2">
+            {items.map((item, i) => (
+              <div key={i} className="flex gap-3 rounded-2xl border border-white/[0.06] bg-black/30 px-4 py-3 text-sm text-white/70 transition hover:bg-black/50 hover:text-white/90">
+                <span className="font-mono text-xs mt-0.5 shrink-0" style={{ color: accent }}>{String(i + 1).padStart(2, "0")}</span>
+                <span className="leading-relaxed">{item}</span>
+              </div>
+            ))}
+          </div>
+          );
 }
