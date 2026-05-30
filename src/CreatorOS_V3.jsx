@@ -985,44 +985,44 @@ Built with CreatorOS — creatoros.io
                   {Math.max(0, FREE_LIMIT - usageCount)} free generations remaining · CreatorOS
                 </div>
               </div>
-            }}
-          );
+            )}
+              );
           }
-          // ─── UTILITY COMPONENTS ───────────────────────────────────────────────────────
+              // ─── UTILITY COMPONENTS ───────────────────────────────────────────────────────
 
-          function Reveal({children, step, threshold}) {
+              function Reveal({children, step, threshold}) {
   return (
-          <div className="transition-all duration-500" style={{
-            opacity: step >= threshold ? 1 : 0,
-            transform: step >= threshold ? "translateY(0)" : "translateY(20px)",
-          }}>
-            {children}
-          </div>
-          );
-}
-
-          function ResultCard({title, icon, accent, children}) {
-  return (
-          <div className="rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden">
-            <div className="flex items-center gap-2 px-6 py-4 border-b border-white/10">
-              <span style={{ color: accent }}>{icon}</span>
-              <h3 className="font-semibold text-white tracking-tight">{title}</h3>
-            </div>
-            <div className="p-6">{children}</div>
-          </div>
-          );
-}
-
-          function NumberedList({items, accent}) {
-  if (!items?.length) return null;
-          return (
-          <div className="space-y-2">
-            {items.map((item, i) => (
-              <div key={i} className="flex gap-3 rounded-2xl border border-white/[0.06] bg-black/30 px-4 py-3 text-sm text-white/70 transition hover:bg-black/50 hover:text-white/90">
-                <span className="font-mono text-xs mt-0.5 shrink-0" style={{ color: accent }}>{String(i + 1).padStart(2, "0")}</span>
-                <span className="leading-relaxed">{item}</span>
+              <div className="transition-all duration-500" style={{
+                opacity: step >= threshold ? 1 : 0,
+                transform: step >= threshold ? "translateY(0)" : "translateY(20px)",
+              }}>
+                {children}
               </div>
-            ))}
-          </div>
-          );
+              );
+}
+
+              function ResultCard({title, icon, accent, children}) {
+  return (
+              <div className="rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden">
+                <div className="flex items-center gap-2 px-6 py-4 border-b border-white/10">
+                  <span style={{ color: accent }}>{icon}</span>
+                  <h3 className="font-semibold text-white tracking-tight">{title}</h3>
+                </div>
+                <div className="p-6">{children}</div>
+              </div>
+              );
+}
+
+              function NumberedList({items, accent}) {
+  if (!items?.length) return null;
+              return (
+              <div className="space-y-2">
+                {items.map((item, i) => (
+                  <div key={i} className="flex gap-3 rounded-2xl border border-white/[0.06] bg-black/30 px-4 py-3 text-sm text-white/70 transition hover:bg-black/50 hover:text-white/90">
+                    <span className="font-mono text-xs mt-0.5 shrink-0" style={{ color: accent }}>{String(i + 1).padStart(2, "0")}</span>
+                    <span className="leading-relaxed">{item}</span>
+                  </div>
+                ))}
+              </div>
+              );
 }
