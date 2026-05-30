@@ -1016,16 +1016,16 @@ Built with CreatorOS — creatoros.io
       );
 }
 
-      function NumberedList({items, accent}) {
+function NumberedList({items, accent}) {
   if (!items?.length) return null;
-      return (
-      <div className="space-y-2">
-        {items.map((item, i) => (
-          <div key={i} className="flex gap-3 rounded-2xl border border-white/[0.06] bg-black/30 px-4 py-3 text-sm text-white/70 transition hover:bg-black/50 hover:text-white/90">
-            <span className="font-mono text-xs mt-0.5 shrink-0" style={{ color: accent }}>{String(i + 1).padStart(2, "0")}</span>
-            <span className="leading-relaxed">{item}</span>
-          </div>
-        ))}
-      </div>
-      );
+  return (
+    <div className="space-y-2">
+      {items.map((item, i) => (
+        <div key={i} className="flex gap-3 rounded-2xl border border-white/[0.06] bg-black/30 px-4 py-3 text-sm text-white/70 transition hover:bg-black/50 hover:text-white/90">
+          <span className="font-mono text-xs mt-0.5 shrink-0" style={{ color: accent }}>{String(i + 1).padStart(2, "0")}</span>
+          <span className="leading-relaxed">{item}</span>
+        </div>
+      ))}
+    </div>
+  );
 }
