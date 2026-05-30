@@ -569,7 +569,7 @@ Built with CreatorOS — creatoros.io
               {FREE_LIMIT - usageCount} free generations remaining
             </div>
           )}
-          <div className="absolute top-20 left-1/2 -translate-x-1/2 flex gap-1 bg-white/10 rounded-full p-1 border border-white/20">
+<div className="flex justify-center gap-1 bg-white/10 rounded-full p-1 border border-white/20 mb-6 w-fit mx-auto">
             <button
               onClick={() => setLanguage("english")}
               className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "english"
