@@ -412,7 +412,7 @@ export default function CreatorOS() {
     const obsession = answers.obsession || arch.topics[0];
     setTopic(obsession);
     setPhase("generating");
-runGeneration(arch, answers, obsession, language);
+    runGeneration(arch, answers, obsession, language);
   };
 
   const runGeneration = useCallback(async (arch, ans, top, lang) => {
@@ -528,6 +528,26 @@ Built with CreatorOS — creatoros.io
           </div>
 
           <div className="relative max-w-3xl mx-auto text-center">
+            <div className="flex justify-center gap-1 bg-white/10 rounded-full p-1 border border-white/20 mb-6 w-fit mx-auto">
+              <button
+                onClick={() => setLanguage("english")}
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "english"
+                    ? "bg-white/10 text-white"
+                    : "text-white/60 hover:text-white/80"
+                  }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage("arabic")}
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "arabic"
+                    ? "bg-white/10 text-white"
+                    : "text-white/60 hover:text-white/80"
+                  }`}
+              >
+                عربية
+              </button>
+            </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-white/50 uppercase tracking-widest mb-10">
               <Sparkles className="h-3 w-3" /> Creator Intelligence System
             </div>
@@ -569,28 +589,6 @@ Built with CreatorOS — creatoros.io
               {FREE_LIMIT - usageCount} free generations remaining
             </div>
           )}
-<div className="flex justify-center gap-1 bg-white/10 rounded-full p-1 border border-white/20 mb-6 w-fit mx-auto">
-            <button
-              onClick={() => setLanguage("english")}
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "english"
-                ? "bg-white/10 text-white"
-                : "text-white/30 hover:text-white/50"
-                }`}
-            >
-              EN
-            </button>
-            <button
-              onClick={() => setLanguage("arabic")}
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${language === "arabic"
-                ? "bg-white/10 text-white"
-                : "text-white/30 hover:text-white/50"
-                }`}
-            >
-              عربية
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* ── ONBOARDING ── */}
       {phase === "onboarding" && (
