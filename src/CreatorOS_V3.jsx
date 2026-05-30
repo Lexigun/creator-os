@@ -988,9 +988,8 @@ Built with CreatorOS — creatoros.io
               </div>
             </div>
           )}
-        </div>
       );
-}
+      }
 
       // ─── UTILITY COMPONENTS ───────────────────────────────────────────────────────
 
